@@ -4,9 +4,7 @@ import os
 import streamlit as st
 # from prompt import *
 
-API_KEY = "AIzaSyDzXN0UKvKj19CLHj-oi8FmjBSes_PUo54"
-genai.configure(api_key=API_KEY)
-
+genai.configure(api_key=st.secrets["API_KEY"])
 
 def health_analysis(product_name, nutrition_label):
     prompt = f"Analyze {product_name} for nutritional value, processing level, and {nutrition_label}. Check for compliance with specific diets and its suitability for diabetes and allergens. Review brand claims for accuracy. Provide a summary with recommendations and highlight any health concerns with {product_name} and {nutrition_label}. If input box does not have Foot Item then Say 'PLEASE PROVIDE ME FOOD ITEM'"
